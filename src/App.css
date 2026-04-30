@@ -1,4 +1,4 @@
-.body {
+body {
       margin: 0;
       height: 100vh;
       font-family: Arial;
@@ -7,7 +7,7 @@
       align-items: center;
       color: white;
 
-      background: url('public/player.png') no-repeat center;
+      background: url('/player.png') no-repeat center;
       background-size: contain;
     }
 
