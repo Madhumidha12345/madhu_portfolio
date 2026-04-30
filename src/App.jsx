@@ -1,68 +1,61 @@
-import { useEffect,useState } from 'react'
-import "./App.css";
-
+import { useState } from "react";
 
 function App() {
-  const [score,setScore] =useState(0)
-  const [ball,setBall] =useState(0)
-  const [over,setOver] =useState(0)
-  const [wicket,setWicket] =useState(0)
+  const [task, setTask] = useState("");
+  const [list, setList] = useState([]);
 
-  const addRun = (run) => {
-    setScore(prev => prev + run);
-    setBall(prev => prev + 1);
-  };
+  function addTask() {
+    if (task.trim() === "") return;
 
-  const addWicket = () => {
-    setWicket(prev => prev + 1);
-    setBall(prev => prev + 1);
-  };
+    const newItem = {
+      text: task,
+      date: new Date().toLocaleDateString(),
+    };
 
-  useEffect(() => {
-    if (ball === 6) {
-      setOver(prev => prev + 1);
-      setBall(0);
-    }
-  }, [ball]);
+    setList([...list, newItem]);
+    setTask("");
+  }
 
- 
   return (
-    <div className="body">
-      <div className="box">
-        <h3>CRICKET SCORE BOARD</h3>
+    <div style={{ textAlign: "center", marginTop: "50px" }}>
+      <h1>My Todo List</h1>
 
-  <div className="row">
-    <span>Score</span>
-     <span>{score}</span>
-  </div>
+      <div>
+        <input
+          type="text"
+          placeholder="Enter your task..."
+          value={task}
+          onChange={(e) => setTask(e.target.value)}
+          style={{
+            padding: "8px",
+            border: "2px solid blue",
+            borderRadius: "5px",
+            marginRight: "10px"
+          }}
+        />
 
-  <div className="row">
-    <span>Ball</span>
-    <span>{ball}</span>
-  </div>
-
-  <div className="row">
-    <span>Overs</span>
-   <span>{over}</span>
-  </div>
-
-  <div className="row">
-    <span>Wickets</span>
-    <span>{wicket}</span>
-  </div>
-
-        <div className="buttons">
-          <button onClick={() => addRun(1)}>1 Run</button>
-          <button onClick={() => addRun(2)}>2 Run</button>
-          <button onClick={() => addRun(3)}>3 Run</button>
-          <button onClick={() => addRun(4)}>4 Run</button>
-          <button onClick={() => addRun(6)}>6 Run</button>
-        </div>
-
-        <button className="wicket-button" onClick={addWicket}>
-          Wicket
+        <button
+          onClick={addTask}
+          style={{
+            padding: "8px 12px",
+            backgroundColor: "brown",
+            color: "white",
+            border: "none",
+            borderRadius: "5px",
+            cursor: "pointer"
+          }}
+        >
+          Add
         </button>
       </div>
+
+      <ul style={{ listStyle: "none", padding: 0 }}>
+        {list.map((item, index) => (
+          <li key={index}>
+            {item.text} - {item.date}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
