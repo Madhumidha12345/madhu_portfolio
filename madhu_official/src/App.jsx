@@ -7,7 +7,6 @@ import Hero from "./components/Hero";
 import About from "./components/About";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
-import Certifications from "./components/Certifications";
 import Contact from "./components/Contact";
 
 import "./index.css";
@@ -41,8 +40,8 @@ function App() {
       {/* MAIN WRAPPER */}
       <Box
         sx={{
-          pt: "100px",
-          pl: { xs: 0, md: "90px" },
+          pt: "100px", // navbar space
+          pl: { xs: 0, md: "90px" }, // sidebar space fix
           pr: { xs: 0, md: 2 },
         }}
       >
@@ -58,27 +57,18 @@ function App() {
             py: { xs: 6, md: 10 },
           }}
         >
-          {/* ABOUT */}
           <Box id="about" sx={{ scrollMarginTop: "120px" }}>
             <About />
           </Box>
 
-          {/* SKILLS */}
           <Box id="skills" sx={{ mt: 12, scrollMarginTop: "120px" }}>
             <Skills />
           </Box>
 
-          {/* PROJECTS */}
           <Box id="projects" sx={{ mt: 12, scrollMarginTop: "120px" }}>
             <Projects />
           </Box>
 
-          {/* CERTIFICATIONS */}
-          <Box id="certifications" sx={{ mt: 12, scrollMarginTop: "120px" }}>
-            <Certifications />
-          </Box>
-
-          {/* CONTACT */}
           <Box id="contact" sx={{ mt: 12, scrollMarginTop: "120px" }}>
             <Contact />
           </Box>
@@ -87,5 +77,4 @@ function App() {
     </Box>
   );
 }
-
 export default App;
