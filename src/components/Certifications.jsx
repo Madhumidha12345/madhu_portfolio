@@ -69,14 +69,15 @@ function Certifications() {
       >
         Certifications & Achievements
       </Typography>
-
-      <Stack
-        direction="row"
-        flexWrap="wrap"
-        justifyContent="center"
-        spacing={5}
-        useFlexGap
-      >
+<Stack
+  direction="row"
+  spacing={4}
+  sx={{
+    justifyContent: "center",
+    flexWrap: "wrap",
+    alignItems: "center",
+  }}
+>
         {certificates.map((item, index) => (
           <Card
             key={index}

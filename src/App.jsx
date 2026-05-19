@@ -37,15 +37,17 @@ function App() {
       >
         <Sidebar />
       </Box>
+{/* MAIN WRAPPER */}
+<Box
+  sx={{
+    pt: { xs: "90px", md: "100px" },
+    pl: { xs: 0, md: "90px" },
+    pr: { xs: 0, md: 2 },
 
-      {/* MAIN WRAPPER */}
-      <Box
-        sx={{
-          pt: "100px",
-          pl: { xs: 0, md: "90px" },
-          pr: { xs: 0, md: 2 },
-        }}
-      >
+    width: "100%",
+    overflowX: "hidden",
+  }}
+>
         {/* HERO */}
         <Box id="home">
           <Hero />

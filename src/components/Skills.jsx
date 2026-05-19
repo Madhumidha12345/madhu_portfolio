@@ -1,11 +1,6 @@
-import {
-  Typography,
-  Stack,
-  Box,
-} from "@mui/material";
+import { Typography, Stack, Box } from "@mui/material";
 
 function Skills() {
-
   const skills = [
     {
       name: "HTML",
@@ -42,7 +37,6 @@ function Skills() {
         backgroundColor: "#0f0f0f",
       }}
     >
-
       {/* TITLE */}
       <Typography
         sx={{
@@ -62,11 +56,12 @@ function Skills() {
       {/* SKILLS */}
       <Stack
         direction="row"
-        flexWrap="wrap"
-        justifyContent="center"
-        gap={3}
+        sx={{
+          flexWrap: "wrap",
+          justifyContent: "center",
+          gap: 3,
+        }}
       >
-
         {skills.map((skill, index) => (
           <Box
             key={index}
@@ -87,7 +82,6 @@ function Skills() {
               },
             }}
           >
-
             <img
               src={skill.image}
               alt={skill.name}
@@ -108,10 +102,8 @@ function Skills() {
             >
               {skill.name}
             </Typography>
-
           </Box>
         ))}
-
       </Stack>
     </Box>
   );

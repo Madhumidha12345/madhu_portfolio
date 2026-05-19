@@ -9,18 +9,19 @@ import {
 function About() {
   return (
     <Box
-  sx={{
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    flexWrap: "wrap",
-  }}
->
-      <Grid container spacing={8}>
-        
+      sx={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        flexWrap: "wrap",
+      }}
+    >
+      <Grid
+        container
+        spacing={8}
+      >
         {/* LEFT SIDE */}
-        <Grid item xs={12} md={7}>
-          
+        <Grid size={{ xs: 12, md: 7 }}>
           <Typography
             sx={{
               color: "#ff7a00",
@@ -93,7 +94,6 @@ function About() {
           </Typography>
 
           <Stack spacing={4}>
-            
             <Box>
               <Typography
                 sx={{
@@ -143,13 +143,11 @@ function About() {
                 Manalmedu • Completed in 2022
               </Typography>
             </Box>
-
           </Stack>
         </Grid>
 
         {/* RIGHT SIDE */}
-        <Grid item xs={12} md={5}>
-          
+        <Grid size={{ xs: 12, md: 5 }}>
           <Box
             sx={{
               backgroundColor: "#111",
@@ -183,7 +181,6 @@ function About() {
             </Typography>
 
             <Stack spacing={3}>
-              
               <Box>
                 <Typography
                   sx={{
@@ -249,7 +246,6 @@ function About() {
                   development skills through projects.
                 </Typography>
               </Box>
-
             </Stack>
           </Box>
         </Grid>

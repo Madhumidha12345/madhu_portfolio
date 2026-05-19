@@ -8,14 +8,13 @@ import {
   Stack,
 } from "@mui/material";
 
-
 const projects = [
   {
     title: "Cricket score board",
     image: "/scoreboard.png",
     desc: "Interactive cricket dashboard with live scores and match statistics.",
     tech: "React • MUI • API",
-    live: "https://cricket_scoreboard.vercel.app/",
+    live: "https://035-cricket-score-board-etnh.vercel.app/",
     github: "https://github.com/Madhumidha12345/035_cricket_score_board",
   },
 
@@ -24,7 +23,7 @@ const projects = [
     image: "/weather.png",
     desc: "Modern weather application with real-time forecast updates.",
     tech: "React • API • JavaScript",
-    live: "https://skycast-weather.vercel.app/",
+    live: "https://weather-eta-snowy-97.vercel.app/",
     github: "https://github.com/Madhumidha12345/Weather.git",
   },
 
@@ -33,7 +32,7 @@ const projects = [
     image: "/todo.png",
     desc: "Simple and clean todo app using local storage support.",
     tech: "React • Local Storage",
-    live: "https://taskflow-todo.vercel.app/",
+    live: "https://036-my-todo.vercel.app/",
     github: "https://github.com/Madhumidha12345/036_my_todo",
   },
 ];
@@ -48,6 +47,7 @@ function Projects() {
         backgroundColor: "#050505",
       }}
     >
+      {/* TITLE */}
       <Typography
         sx={{
           color: "white",
@@ -60,12 +60,15 @@ function Projects() {
         My Projects
       </Typography>
 
+      {/* PROJECT CARDS */}
       <Stack
         direction={{ xs: "column", md: "row" }}
         spacing={4}
-        justifyContent="center"
-        alignItems="center"
-        flexWrap="wrap"
+        sx={{
+          justifyContent: "center",
+          alignItems: "center",
+          flexWrap: "wrap",
+        }}
       >
         {projects.map((project, index) => (
           <Card
@@ -79,12 +82,14 @@ function Projects() {
               color: "white",
               overflow: "hidden",
               transition: "0.4s",
+
               "&:hover": {
                 transform: "translateY(-12px)",
                 boxShadow: "0 0 30px rgba(0,191,255,0.25)",
               },
             }}
           >
+            {/* IMAGE */}
             <CardMedia
               component="img"
               height="200"
@@ -93,28 +98,53 @@ function Projects() {
             />
 
             <CardContent sx={{ p: 3 }}>
-              <Typography sx={{ fontSize: "24px", fontWeight: 700, mb: 1 }}>
+              {/* TITLE */}
+              <Typography
+                sx={{
+                  fontSize: "24px",
+                  fontWeight: 700,
+                  mb: 1,
+                }}
+              >
                 {project.title}
               </Typography>
 
-              <Typography sx={{ color: "#bbb", mb: 2, lineHeight: 1.8 }}>
+              {/* DESCRIPTION */}
+              <Typography
+                sx={{
+                  color: "#bbb",
+                  mb: 2,
+                  lineHeight: 1.8,
+                }}
+              >
                 {project.desc}
               </Typography>
 
-              <Typography sx={{ color: "#00bfff", mb: 3, fontWeight: 500 }}>
+              {/* TECH */}
+              <Typography
+                sx={{
+                  color: "#00bfff",
+                  mb: 3,
+                  fontWeight: 500,
+                }}
+              >
                 {project.tech}
               </Typography>
 
+              {/* BUTTONS */}
               <Stack direction="row" spacing={2}>
-                {/* LIVE BUTTON (FIXED) */}
+                {/* LIVE DEMO */}
                 <Button
                   variant="contained"
-                  onClick={() => window.open(project.live, "_blank")}
+                  onClick={() =>
+                    window.open(project.live, "_blank")
+                  }
                   sx={{
                     backgroundColor: "#00bfff",
                     borderRadius: "12px",
                     textTransform: "none",
                     px: 3,
+
                     "&:hover": {
                       backgroundColor: "#0099cc",
                     },
@@ -123,7 +153,7 @@ function Projects() {
                   Live Demo
                 </Button>
 
-                {/* GITHUB BUTTON */}
+                {/* GITHUB */}
                 <Button
                   component="a"
                   href={project.github}
@@ -136,6 +166,7 @@ function Projects() {
                     borderRadius: "12px",
                     textTransform: "none",
                     px: 3,
+
                     "&:hover": {
                       borderColor: "#00bfff",
                       color: "#00bfff",
