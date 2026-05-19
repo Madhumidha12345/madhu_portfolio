@@ -1,110 +1,162 @@
-import React from "react";
-import { Box, Card, CardMedia, CardContent, Typography, Button } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Card,
+  CardContent,
+  CardMedia,
+  Button,
+  Stack,
+} from "@mui/material";
 
-const Certifications = ({ certificates = [] }) => {
+function Certifications() {
+  const certificates = [
+    {
+      title: "SAP S/4HANA - Sourcing and Procurement",
+       image: "/certificate_1.png",
+      date: "January 2026",
+      link: "/certificate_1.png",
+    },
+    {
+      title: "Oracle AI Foundations Associate",
+      image: "/certificate_2.png",
+      date: "March 2025",
+      link: "/certificate_2.png",
+    },
+    {
+      title: "Software Testing - Naan Mudhalvan",
+      image: "/certificate_3.png",
+      date: "April 2025",
+      link: "/certificate_3.png",
+    },
+    {
+      title: "Oracle Cloud Infrastructure Architecture",
+      image: "/certificate_4.png",
+      date: "May 2024",
+      link: "/certificate_4.png",
+    },
+    {
+      title: "Oracle Foundations Associate",
+      image: "/certificate_5.png",
+      date: "February 2024",
+      link: "/certificate_5.png",
+    },
+    {
+      title: "Diplomo in Desktop Publishing",
+      image: "/certificate_6.png",
+      date: "March 2022",
+      link: "/certificate_6.png",
+    }
+  ];
+
   return (
     <Box
+      id="certifications"
       sx={{
-        display: "grid",
-        gridTemplateColumns: {
-          xs: "1fr",
-          sm: "repeat(2, 1fr)",
-          md: "repeat(3, 1fr)",
-        },
-        gap: 4,
-        justifyItems: "center",
-        p: 2,
+        minHeight: "100vh",
+        background: "#050816",
+        py: 10,
+        px: 3,
       }}
     >
-      {certificates.map((item, index) => (
-        <Card
-          key={index}
-          sx={{
-            width: {
-              xs: "100%",
-              sm: 300,
-              md: 320,
-            },
-            maxWidth: "320px",
-            background: "#1d1836",
-            borderRadius: "20px",
-            color: "white",
-            overflow: "hidden",
-            display: "flex",
-            flexDirection: "column",
-            transition: "0.3s",
-            "&:hover": {
-              transform: "translateY(-8px)",
-              boxShadow: "0 10px 25px rgba(0,0,0,0.3)",
-            },
-          }}
-        >
-          <CardMedia
-            component="img"
-            height="200"
-            image={item.image}
-            alt={item.title}
+      <Typography
+        variant="h3"
+        align="center"
+        sx={{
+          color: "white",
+          fontWeight: "bold",
+          mb: 8,
+        }}
+      >
+        Certifications & Achievements
+      </Typography>
+<Stack
+  direction="row"
+  spacing={4}
+  sx={{
+    justifyContent: "center",
+    flexWrap: "wrap",
+    alignItems: "center",
+  }}
+>
+        {certificates.map((item, index) => (
+          <Card
+            key={index}
             sx={{
-              objectFit: "cover",
-              width: "100%",
-            }}
-          />
-
-          <CardContent
-            sx={{
+              width: 320,
+              background: "#1d1836",
+              borderRadius: "20px",
+              color: "white",
+              overflow: "hidden",
               display: "flex",
               flexDirection: "column",
-              flexGrow: 1,
-              p: 3,
+              transition: "0.3s",
+              "&:hover": {
+                transform: "translateY(-8px)",
+              },
             }}
           >
-            <Typography
-              variant="h6"
+            <CardMedia
+              component="img"
+              height="200"
+              image={item.image}
+              alt={item.title}
               sx={{
-                fontWeight: "bold",
-                mb: 1,
-                minHeight: "60px",
+                objectFit: "cover",
               }}
-            >
-              {item.title}
-            </Typography>
+            />
 
-            <Typography
-              variant="body2"
+            <CardContent
               sx={{
-                color: "#aaa6c3",
-                mb: 3,
+                display: "flex",
+                flexDirection: "column",
+                flexGrow: 1,
+                p: 3,
               }}
             >
-              {item.date}
-            </Typography>
+              <Typography
+                variant="h6"
+                sx={{
+                  fontWeight: "bold",
+                  mb: 1,
+                  minHeight: "60px",
+                }}
+              >
+                {item.title}
+              </Typography>
 
-            <Button
-              variant="contained"
-              fullWidth
-              component="a"
-              href={item.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              sx={{
-                mt: "auto",
-                borderRadius: "12px",
-                py: 1.2,
-                fontWeight: "bold",
-                textTransform: "none",
-                backgroundColor: "#6c63ff",
-                "&:hover": {
-                  backgroundColor: "#574fd6",
-                },
-              }}
-            >
-              View Certificate
-            </Button>
-          </CardContent>
-        </Card>
-      ))}
+              <Typography
+                variant="body2"
+                sx={{
+                  color: "#aaa6c3",
+                  mb: 3,
+                }}
+              >
+                {item.date}
+              </Typography>
+
+              <Button
+                variant="contained"
+                fullWidth
+                component="a"
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{
+                  mt: "auto",
+                  borderRadius: "12px",
+                  py: 1.2,
+                  fontWeight: "bold",
+                  textTransform: "none",
+                }}
+              >
+                View Certificate
+              </Button>
+            </CardContent>
+          </Card>
+        ))}
+      </Stack>
     </Box>
   );
-};
+}
 
 export default Certifications;
