@@ -2,9 +2,9 @@
   sx={{
     display: "grid",
     gridTemplateColumns: {
-      xs: "1fr",
-      sm: "repeat(2, 1fr)",
-      md: "repeat(3, 1fr)",
+      xs: "1fr",              // mobile
+      sm: "repeat(2, 1fr)",  // tablet
+      md: "repeat(3, 1fr)",  // desktop
     },
     gap: 4,
     justifyItems: "center",
@@ -14,7 +14,12 @@
     <Card
       key={index}
       sx={{
-        width: 320,
+        width: {
+          xs: "100%",
+          sm: 300,
+          md: 320,
+        },
+        maxWidth: "320px",
         background: "#1d1836",
         borderRadius: "20px",
         color: "white",
@@ -22,7 +27,6 @@
         display: "flex",
         flexDirection: "column",
         transition: "0.3s",
-        height: "100%",
         "&:hover": {
           transform: "translateY(-8px)",
         },
@@ -35,6 +39,7 @@
         alt={item.title}
         sx={{
           objectFit: "cover",
+          width: "100%",
         }}
       />
 
